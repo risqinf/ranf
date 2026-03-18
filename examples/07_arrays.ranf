@@ -1,0 +1,51 @@
+// 07_arrays.ranf — arrays, built-in operations, iteration
+fn sum(nums: array) -> int {
+    let mut total = 0
+    for n in nums {
+        total += n
+    }
+    return total
+}
+
+fn map_double(nums: array) -> array {
+    let mut result = []
+    for n in nums {
+        result = push(result, n * 2)
+    }
+    return result
+}
+
+fn filter_even(nums: array) -> array {
+    let mut result = []
+    for n in nums {
+        if n % 2 == 0 {
+            result = push(result, n)
+        }
+    }
+    return result
+}
+
+fn main() {
+    let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    println(f"nums: {nums}")
+    println(f"sum: {sum(nums)}")          // 55
+    println(f"doubled: {map_double(nums)}")
+    println(f"evens: {filter_even(nums)}")
+
+    // Built-in array functions
+    println(f"len: {len(nums)}")           // 10
+    println(f"first: {first(nums)}")       // Some(1)
+    println(f"last: {last(nums)}")         // Some(10)
+    println(f"reversed: {reverse(nums)}")
+
+    // String array
+    let words = ["ranf", "is", "safe", "and", "fast"]
+    println(join(words, " "))              // ranf is safe and fast
+
+    // Range generation
+    let r = range(1, 6)
+    println(f"range(1,6): {r}")           // [1, 2, 3, 4, 5]
+}
+
+main()

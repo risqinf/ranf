@@ -1,0 +1,71 @@
+// 03_control_flow.ranf — if/else, while, for, loop, match
+fn main() {
+    // --- if / else if / else ---
+    let score = 85
+    if score >= 90 {
+        println("A")
+    } else if score >= 80 {
+        println("B")
+    } else if score >= 70 {
+        println("C")
+    } else {
+        println("F")
+    }
+
+    // --- while ---
+    let mut n = 1
+    while n <= 5 {
+        println(f"  n = {n}")
+        n += 1
+    }
+
+    // --- for range (exclusive) ---
+    println("0..5:")
+    for i in 0..5 {
+        println(f"  {i}")
+    }
+
+    // --- for range (inclusive) ---
+    println("1..=3:")
+    for i in 1..=3 {
+        println(f"  {i}")
+    }
+
+    // --- for each ---
+    let fruits = ["apple", "banana", "cherry"]
+    for fruit in fruits {
+        println(f"  fruit: {fruit}")
+    }
+
+    // --- loop with break ---
+    let mut x = 0
+    loop {
+        x += 1
+        if x >= 3 {
+            break
+        }
+    }
+    println(f"loop ended at x = {x}")
+
+    // --- match ---
+    let day = 3
+    match day {
+        1 => println("Monday"),
+        2 => println("Tuesday"),
+        3 => println("Wednesday"),
+        4 => println("Thursday"),
+        5 => println("Friday"),
+        _ => println("Weekend"),
+    }
+
+    // --- match with range pattern ---
+    let temp = 28
+    match temp {
+        0..=15  => println("cold"),
+        16..=25 => println("comfortable"),
+        26..=35 => println("warm"),
+        _       => println("hot"),
+    }
+}
+
+main()

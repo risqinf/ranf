@@ -1,0 +1,29 @@
+// 02_variables.ranf — Variables, mutability, type annotations
+fn main() {
+    // Immutable by default
+    let city = "Jakarta"
+    // city = "Bandung"   // ERROR: cannot assign to immutable variable
+
+    // Mutable variable
+    let mut counter = 0
+    counter += 1
+    counter += 1
+    println(f"counter = {counter}")   // 2
+
+    // Type annotations
+    let score: int = 100
+    let temperature: float = 36.5
+    let greeting: str = "Hi!"
+    let active: bool = true
+
+    println(f"score={score}, temp={temperature}, msg={greeting}, active={active}")
+
+    // Numeric literals
+    let hex   = 0xFF       // 255
+    let bin   = 0b1010     // 10
+    let octal = 0o17       // 15
+    let big   = 1_000_000  // readable separator
+    println(f"hex={hex}, bin={bin}, octal={octal}, big={big}")
+}
+
+main()

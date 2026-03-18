@@ -1,0 +1,39 @@
+// 04_functions.ranf — functions, closures, recursion
+fn add(a: int, b: int) -> int {
+    return a + b
+}
+
+fn greet(name: str) -> str {
+    return f"Hello, {name}!"
+}
+
+fn factorial(n: int) -> int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+fn fibonacci(n: int) -> int {
+    if n <= 1 { return n }
+    return fibonacci(n - 1) + fibonacci(n - 2)
+}
+
+// Higher-order: function that uses a built-in operation
+fn apply_twice(x: int, n: int) -> int {
+    return x + n + n
+}
+
+fn main() {
+    println(add(3, 7))            // 10
+    println(greet("ranf"))        // Hello, ranf!
+    println(factorial(6))         // 720
+    println(fibonacci(10))        // 55
+    println(apply_twice(10, 5))   // 20
+
+    // Chained calls
+    let result = add(add(1, 2), add(3, 4))
+    println(f"chained: {result}")   // 10
+}
+
+main()

@@ -1,0 +1,52 @@
+// 08_strings.ranf — string operations, f-strings, methods
+fn is_palindrome(s: str) -> bool {
+    let chars_arr = chars(s)
+    let reversed = reverse(chars_arr)
+    return join(chars_arr, "") == join(reversed, "")
+}
+
+fn count_words(text: str) -> int {
+    let words = split(trim(text), " ")
+    return len(words)
+}
+
+fn main() {
+    let msg = "Hello, ranf!"
+    println(f"original: {msg}")
+    println(f"upper: {upper(msg)}")
+    println(f"lower: {lower(msg)}")
+    println(f"len: {len(msg)}")
+
+    // f-string with expressions
+    let a = 10
+    let b = 3
+    println(f"{a} + {b} = {a + b}")
+    println(f"{a} * {b} = {a * b}")
+    println(f"{a} ** 2 = {a ** 2}")
+
+    // String methods
+    let sentence = "  ranf is great  "
+    println(f"trimmed: '{trim(sentence)}'")
+
+    let csv = "one,two,three,four"
+    let parts = split(csv, ",")
+    println(f"parts: {parts}")
+    println(f"joined: {join(parts, " | ")}")
+
+    let text = replace(msg, "ranf", "world")
+    println(f"replaced: {text}")
+
+    // Palindrome check
+    let words = ["racecar", "hello", "level", "world", "madam"]
+    for word in words {
+        let is_pal = is_palindrome(word)
+        println(f"{word} palindrome: {is_pal}")
+    }
+
+    // contains / starts_with / ends_with
+    println(contains(msg, "ranf"))        // true
+    println(starts_with(msg, "Hello"))    // true
+    println(ends_with(msg, "!"))          // true
+}
+
+main()

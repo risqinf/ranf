@@ -1,0 +1,53 @@
+// 05_option_result.ranf — Option<T>, Result<T,E>, match, unwrap
+fn safe_divide(a: int, b: int) -> Result<int> {
+    if b == 0 {
+        return Err("division by zero")
+    }
+    return Ok(a / b)
+}
+
+fn find_first_even(nums: array) -> Option<int> {
+    for n in nums {
+        if n % 2 == 0 {
+            return Some(n)
+        }
+    }
+    return None
+}
+
+fn main() {
+    // --- Result ---
+    let r1 = safe_divide(10, 2)
+    let r2 = safe_divide(10, 0)
+
+    match r1 {
+        Ok(v)  => println(f"10 / 2 = {v}"),
+        Err(e) => println(f"Error: {e}"),
+    }
+
+    match r2 {
+        Ok(v)  => println(f"result: {v}"),
+        Err(e) => println(f"caught error: {e}"),
+    }
+
+    // --- Option ---
+    let nums = [1, 3, 5, 4, 7]
+    let found = find_first_even(nums)
+
+    match found {
+        Some(v) => println(f"first even: {v}"),
+        None    => println("no even number found"),
+    }
+
+    // --- Method style ---
+    let v1 = Some(42)
+    println(v1.unwrap())              // 42
+    let v2 = None
+    println(v2.unwrap_or(99))         // 99
+
+    // --- is_some / is_none ---
+    let maybe: bool = is_some(Some(1))
+    println(f"is_some: {maybe}")       // true
+}
+
+main()

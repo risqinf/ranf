@@ -1,0 +1,11 @@
+// 01_hello.ranf — Hello World and basic I/O
+fn main() {
+    let name = "World"
+    println(f"Hello, {name}!")
+
+//    let x: int = 42
+//    let pi: float = 3.14159
+//    println(f"x = {x}, pi = {pi}")
+}
+
+main()
